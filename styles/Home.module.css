@@ -56,7 +56,7 @@
   align-items: center;
   width: 75px;
   height: 75px;
-  padding: 25px 10px;
+  padding: 5px 3px;
   margin-left: 16px;
   transform: translateZ(0);
   border-radius: var(--border-radius);
@@ -136,7 +136,7 @@
   }
 
   .center {
-    padding: 8rem 0 6rem;
+    padding: 2rem 0 6rem;
   }
 
   .center::before {

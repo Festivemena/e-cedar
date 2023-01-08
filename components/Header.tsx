@@ -7,34 +7,35 @@ import { AiOutlineLogout } from 'react-icons/ai';
 import { BiSearch } from 'react-icons/bi';
 import { IoMdAdd } from 'react-icons/io';
 import Logo from '../assets/oie_jpg.png';
+import styles from '../styles/Home.module.css';
 import { BsCartDashFill } from 'react-icons/bs';
 import { createOrGetUser } from '../utils';
-// import {useAuthStore} from '../store/authStore'
+import { IUser } from '../types';
+import useAuthStore from '../store/authStore';
 
 const Header = () => {
-  // const {userProfile, addUser} = useAuthStore;
-  const user = 'Efemena'
+  // const {addUser} = useAuthStore;
+  const [user, setUser] = useState<IUser | null>();
   const [searchValue, setSearchValue] = useState('');
   const router = useRouter();  
 
   return (
-    <div className='w-full flex justify-between items-center border-b-2 border-gray-200 py-2 px-4'>
+    <div className='w-full flex justify-between items-center border-b-2 border-gray-200 py-4 px-4'>
       <Link href='/'>
-        <div className='w-[100px] md:w-[129px] md:h-[30px] h-[38px]'>
+        <div className='w-[100px] md:w-[129px] -mt-[18px] md:h-[50px] h-[50px]'>
           <Image
             className='cursor-pointer'
             src={Logo}
             alt='logo'
-            width={100}
+            width={200}
             height={50}
-            // layout='responsive'
           />
         </div>
       </Link>
 
       <div className='relative hidden md:block'>
         <form
-          className='absolute md:static top-10 -left-20 bg-white'
+          className='absolute md:static top-10 -left-20 bg-primary'
         >
           <input
             value={searchValue}
@@ -73,7 +74,7 @@ const Header = () => {
                   
                 }}
               >
-                <div className='truncate'>{user}</div>
+                <div className='truncate'>Efemena</div>
                 
               </button>
               <div className='py-2 rounded-full cursor-pointer outline-none'> <BsCartDashFill className='w-6 h-6' /> </div>
@@ -82,7 +83,7 @@ const Header = () => {
         ) : (
             // <AiOutlineLogout color='red' fontSize={21} />
             <GoogleLogin 
-            onSuccess={(response) => createOrGetUser(response, addUser)}
+            onSuccess={(response) => createOrGetUser(response)}
             onError={() => console.log("Error")}
             />
         )}
