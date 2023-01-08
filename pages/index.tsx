@@ -15,27 +15,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.description}>
+        {/* <div className={styles.description}>
           <div>
-           
+          
           </div>
-        </div>
+        </div> */}
 
         <div className={styles.center}>
           
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
-
-        <div className={styles.grid}>
-
         </div>
       </main>
     </>
