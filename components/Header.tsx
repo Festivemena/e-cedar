@@ -14,15 +14,19 @@ import { IUser } from '../types';
 import useAuthStore from '../store/authStore';
 
 const Header = () => {
-  // const {addUser} = useAuthStore;
+  // const { addUser, userProfile } = useAuthStore;
   const [user, setUser] = useState<IUser | null>();
   const [searchValue, setSearchValue] = useState('');
   const router = useRouter();  
 
+  // useEffect(() => {
+  //   setUser(userProfile);
+  // }, [userProfile]);
+
   return (
-    <div className='w-full flex justify-between items-center border-b-2 border-gray-200 py-4 px-4'>
+    <div className='w-full flex justify-between items-center border-b-2 border-gray-200 py-2 px-4'>
       <Link href='/'>
-        <div className='w-[100px] md:w-[129px] -mt-[18px] md:h-[50px] h-[50px]'>
+        <div className='w-[100px] md:w-[129px] -mt-[18px] lg:pt-[2px]  h-[40px]'>
           <Image
             className='cursor-pointer'
             src={Logo}
@@ -35,7 +39,7 @@ const Header = () => {
 
       <div className='relative hidden md:block'>
         <form
-          className='absolute md:static top-10 -left-20 bg-primary'
+          className='absolute md:static rounded-full top-10 -left-20 bg-primary'
         >
           <input
             value={searchValue}

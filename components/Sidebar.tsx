@@ -16,13 +16,13 @@ const Sidebar = () => {
   return (
     <div>
    <div
-        className='block xl:hidden m-2 ml-4 cursor-pointer mt-3 text-xl'
+        className='block xl:hidden m-2 ml-2 cursor-pointer mt-3 text-xl'
         onClick={() => setShowSidebar(!showSidebar)}
       >
-        {showSidebar ? <ImCancelCircle /> : <AiOutlineMenu />}
+        {showSidebar ? <ImCancelCircle className='md:mt-2 md:h-8 w-8' /> : <AiOutlineMenu className='md:mt-2 md:h-8 w-8' />}
       </div>
       {showSidebar && (
-        <div className='xl:w-400 w-16 flex flex-col justify-start mb-10 border-r-2 border-gray-100 xl:border-0 p-3 '>
+        <div className='xl:w-[370px] w-16 flex flex-col justify-start mb-10 border-r-2 border-gray-100 xl:border-0 p-3 '>
           <div className='xl:border-b-2 border-gray-200 xl:pb-4'>
             <Link href='/'>
               <div className={pathname === '/' ? activeLink : normalLink}>
@@ -36,7 +36,7 @@ const Sidebar = () => {
             </Link>
           </div>
           <div className='xl:border-b-2 border-gray-200 xl:pb-4'>
-            <Link href='/user/mena'>
+            <Link href='/'>
               <div className={pathname === '/' ? activeLink : normalLink}>
                 <p className='text-2xl'>
                   <BsPersonFill />
