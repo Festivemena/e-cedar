@@ -2,10 +2,20 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
+import axios from 'axios'
+import { Product } from '../types'
+import ProductCard from '../components/ProductCard'
+import NoResults from '../components/NoResults'
 
-const inter = Inter({ subsets: ['latin'] })
+interface IProps {
+  products: Product[]
+}
 
-export default function Home() {
+const inter = Inter({
+  variable: '--inter-font',
+})
+
+ const Home = ( { products }: IProps ) => {
   return (
     <>
       <Head>
@@ -15,16 +25,34 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        {/* <div className={styles.description}>
-          <div>
-          
-          </div>
-        </div> */}
-
-        <div className={styles.center}>
-          
-        </div>
+        <div className={inter.variable}>
+        <div className='grid grid-cols-2 md:grid-cols-3 w-full gap-4 lg:gap-1 pr-2 videos h-full'>
+        {products.length ? (
+          products.map((product: Product) => (
+            <ProductCard list={product} key={product._id} />
+          ))
+        ) : (
+          <NoResults text={'NO New Products... Check Back Later'} />
+        )
+        }
+      </div>
+      </div>
       </main>
     </>
   )
 }
+
+
+export const getServerSideProps = async () => {
+  const { data } = await axios.get(`http://localhost:3000/api/products`);
+
+  
+
+  return {
+    props: {
+      products: data
+    },
+  }
+}
+
+export default Home
