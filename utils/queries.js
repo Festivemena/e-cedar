@@ -15,30 +15,19 @@ export const allProductsQuery = () => {
   return query;
 };
 
-export const postDetailQuery = (postId) => {
-  const query = `*[_type == "post" && _id == '${postId}']{
+export const productDetailQuery = (id) => {
+  const query = `*[_type == "product" && _id == '${id}']{
     _id,
      caption,
-       video{
-        asset->{
-          _id,
-          url
-        }
-      },
-      userId,
-    postedBy->{
-      _id,
-      userName,
-      image
+     productDetails,
+     productImage{
+      asset->{
+        _id,
+        url
+      }
     },
-     likes,
-    comments[]{
-      comment,
-      _key,
-      postedBy->{
-        _ref,
-      _id,
-    },
+      category,
+      price,
     }
   }`;
   return query;

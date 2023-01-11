@@ -14,14 +14,14 @@ import { IUser } from '../types';
 import useAuthStore from '../store/authStore';
 
 const Header = () => {
-  // const { addUser, userProfile } = useAuthStore;
+  const { addUser, userProfile}: any = useAuthStore;
   const [user, setUser] = useState<IUser | null>();
   const [searchValue, setSearchValue] = useState('');
   const router = useRouter();  
 
-  // useEffect(() => {
-  //   setUser(userProfile);
-  // }, [userProfile]);
+  useEffect(() => {
+    setUser(userProfile);
+  }, [userProfile]);
 
   return (
     <div className='w-full flex justify-between items-center border-b-2 border-gray-200 py-2 px-4'>
@@ -67,7 +67,13 @@ const Header = () => {
             {user.image && (
               <Link href={`/`}>
                 <div>
-                  
+                <Image
+                    className='rounded-full cursor-pointer'
+                    src={user.image}
+                    alt='user'
+                    width={40}
+                    height={40}
+                  />
                 </div>
               </Link>
             )}
@@ -75,19 +81,17 @@ const Header = () => {
                 type='button'
                 className=' border-2 p-2 rounded-full cursor-pointer outline-none shadow-md'
                 onClick={() => {
-                  
+                  googleLogout();
                 }}
               >
-                <div className='truncate'>Efemena</div>
-                
+                <AiOutlineLogout color='red' fontSize={21} />
               </button>
               <div className='py-2 rounded-full cursor-pointer outline-none'> <BsCartDashFill className='w-6 h-6' /> </div>
           </div>
           
         ) : (
-            // <AiOutlineLogout color='red' fontSize={21} />
             <GoogleLogin 
-            onSuccess={(response) => createOrGetUser(response)}
+            onSuccess={(response) => createOrGetUser(response, addUser)}
             onError={() => console.log("Error")}
             />
         )}

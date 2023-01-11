@@ -10,24 +10,24 @@ interface IProps {
 
 const ProductCard: NextPage<IProps> = ({ list }) => {
   return (
-    <div className='flex flex-col border-b-2 border-gray-200'>
+    <div className='flex flex-col border-2 py-2 rounded-xl shadow-xl border-gray-200'>
       <div className='lg:ml-2 flex gap-2 relative'>
         <div
           // onMouseEnter={() => setIsHover(true)}
           // onMouseLeave={() => setIsHover(false)}
           className='rounded-3xl'
         >
-          <Link href={`/`}>
+          <Link href={`/detail/${list._id}`}>
             <img
               src={list.productImage.asset.url}
-              className='lg:w-[350px] h-[125px] md:h-[400px] md:w-[400px] lg:h-[350px] w-[125px] rounded-2xl cursor-pointer bg-gray-100'
+              className='lg:w-[350px] h-[125px] md:h-[400px] md:w-[400px] lg:h-[350px] w-[125px] rounded-2xl cursor-pointer pl-2'
             ></img>
           </Link>
           <div className='flex-1 text-center'>
-          <Link href={`/`}>
-              <p className='mt-[2px] w-full flex text-left font-bold text-[16px] '>{list.productName}</p>
+          <Link href={`/detail/${list._id}`}>
+              <p className='mt-[2px] pl-1 w-full flex text-left font-bold text-[16px] '>{list.productName}</p>
             </Link>
-            <p className='-mt-[2px] w-full text-right  font-thin text-[10px]'>{list.price}</p>
+            <p className='-mt-[2px] pr-1 w-full text-right  font-thin text-[12px]'>{list.price}</p>
             </div>
         </div>
       </div>

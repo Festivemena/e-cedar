@@ -22,11 +22,11 @@ const Sidebar = () => {
         {showSidebar ? <ImCancelCircle className='md:mt-2 md:h-8 w-8' /> : <AiOutlineMenu className='md:mt-2 md:h-8 w-8' />}
       </div>
       {showSidebar && (
-        <div className='xl:w-[370px] w-16 flex flex-col justify-start mb-10 border-r-2 border-gray-100 xl:border-0 p-3 '>
+        <div className='xl:w-[370px] w-10 flex flex-col justify-start mb-10 border-r-2 border-gray-100 xl:border-0 p-3 '>
           <div className='xl:border-b-2 border-gray-200 xl:pb-4'>
             <Link href='/'>
               <div className={pathname === '/' ? activeLink : normalLink}>
-                <p className='text-2xl'>
+                <p className='text-[16px]'>
                   <AiFillHome />
                 </p>
                 <span className='capitalize text-xl hidden xl:block'>
@@ -38,7 +38,7 @@ const Sidebar = () => {
           <div className='xl:border-b-2 border-gray-200 xl:pb-4'>
             <Link href='/user/mena'>
               <div className={pathname === '/' ? activeLink : normalLink}>
-                <p className='text-2xl'>
+                <p className='text-[18px]'>
                   <BsPersonFill />
                 </p>
                 <span className='capitalize text-xl hidden xl:block'>
