@@ -36,7 +36,7 @@ const Sidebar = () => {
             </Link>
           </div>
           <div className='xl:border-b-2 border-gray-200 xl:pb-4'>
-            <Link href='/'>
+            <Link href='/user/mena'>
               <div className={pathname === '/' ? activeLink : normalLink}>
                 <p className='text-2xl'>
                   <BsPersonFill />
