@@ -16,8 +16,8 @@ export const allProductsQuery = () => {
   return query;
 };
 
-export const productDetailQuery = (id: string | string[]) => {
-  const query = `*[_type == "product" && _id == '${id}']{
+export const productDetailQuery = (PostId: string | string[]) => {
+  const query = `*[_type == "product" && _id == '${PostId}']{
     _id,
      productDetails,
      productName,

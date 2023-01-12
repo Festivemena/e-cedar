@@ -84,7 +84,7 @@ const Detail = (
   );
 };
 
-export const getServerSideProps = async (
+export const getServerSideprops = async (
   {
   params: { id },
 }: {
