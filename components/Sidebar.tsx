@@ -8,7 +8,7 @@ import { BsPersonFill } from 'react-icons/bs';
 // import Footer from './Footer';
 
 const Sidebar = () => {
-    const [showSidebar, setShowSidebar] = useState(true)
+    const [showSidebar, setShowSidebar] = useState(false)
     const { pathname } = useRouter();
     const activeLink = 'flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#F51997] rounded';
 

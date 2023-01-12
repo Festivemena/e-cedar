@@ -20,7 +20,7 @@ const ProductCard: NextPage<IProps> = ({ list }) => {
           <Link href={`/detail/${list._id}`}>
             <img
               src={list.productImage.asset.url}
-              className='lg:w-[350px] h-[150px] md:h-[400px] md:w-[400px] lg:h-[350px] w-[150px] rounded-2xl cursor-pointer pl-1'
+              className='lg:w-[350px] h-[150px] md:h-[400px] md:w-[400px] lg:h-[350px] w-[150px] rounded-xl cursor-pointer pl-1'
             ></img>
           </Link>
           <div className='flex-1 text-center'>
