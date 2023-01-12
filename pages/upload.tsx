@@ -10,14 +10,14 @@ import { BASE_URL } from '../utils';
 import { client } from '../utils/sanity';
 import { category } from '../utils/constants';
 
-const upload = () => {
+const Upload = () => {
     const [productName, setProductName] = useState('');
     const [topic, setTopic] = useState<String>(category[0].name);
     const [loading, setLoading] = useState<Boolean>(false);
     const [savingProduct, setSavingProduct] = useState<Boolean>(false);
     const [productImageAsset, setProductImageAsset] = useState<SanityAssetDocument | undefined>();
 
-    const userProfile: any = useAuthStore((state) => state.userProfile);
+    // const userProfile: any = useAuthStore((state) => state.userProfile);
     const router = useRouter();
 
     // useEffect(() => {
@@ -194,4 +194,4 @@ const upload = () => {
   )
 }
 
-export default upload
+export default Upload
