@@ -12,17 +12,19 @@ import { HiVolumeUp, HiVolumeOff } from 'react-icons/hi';
 import { BASE_URL } from '../../utils'
 
 interface IProps {
-  productDetail: Product[]
+  productDetails: Product[]
 }
 
-const Detail = ( { productDetail }: IProps ) => {
-  const [post, setPost] = useState(productDetail);
+const Detail = (
+   { productDetails }: IProps
+    ) => {
+  const [product, setProduct] = useState(productDetails);
   // const [isPlaying, setIsPlaying] = useState<boolean>(false);
   // const [isVideoMuted, ] = useState<boolean>(false);
   // const [isPostingComment, setIsPostingComment] = useState<boolean>(false);
   // const [comment, setComment] = useState<string>('');
 
-console.log(productDetail);
+  console.log(productDetails)
   const router = useRouter();
 
 
@@ -41,7 +43,7 @@ console.log(productDetail);
                 <Image
                   onClick={() => {}}
                   alt='Product'
-                 src={sds}
+                  src={sds}
                  height={500}
                  width={350}
                   className=' h-full px-3 cursor-pointer'
@@ -51,7 +53,7 @@ console.log(productDetail);
           </div>
           <div className='relative w-[1000px] md:w-[900px] lg:w-[700px]'>
             <div className='lg:mt-20 mt-10'>
-              <Link href={`/profile/${post}`}>
+              <Link href={`/profile}`}>
                 <div className='flex gap-4 mb-4 bg-white w-full pl-10 cursor-pointer'>
                   {/* <Image
                     width={60}
@@ -63,7 +65,7 @@ console.log(productDetail);
                   <div>
                     <div className='text-xl font-bold lowercase tracking-wider flex gap-2 items-center justify-center'>
                       {/* {post.postedBy.userName.replace(/\s+/g, '')}{' '} */}
-                      Product Name
+                     Product Name
                       {/* <GoVerified className='text-blue-400 text-xl' /> */}
                     </div>
                     <p className='text-md'>Product Price</p>
@@ -73,6 +75,7 @@ console.log(productDetail);
               <div className='px-10'>
                 <p className=' text-md text-gray-600'>Product Details to go here</p>
               </div>
+              <div className='bg-green-700 w-36 text-white px-3 text-right rounded-md'>Add to Cart</div>
             </div>
           </div>
         </div>
@@ -81,16 +84,20 @@ console.log(productDetail);
   );
 };
 
-export const getServerSideprops = async ({
+export const getServerSideprops = async (
+  {
   params: { id },
 }: {
   params: { id: string };
-})  => {
-  const res = await axios.get(`${BASE_URL}/api/post/${id}`);
-
-  return {
-    props: { postDetails: res.data },
-  };
 }
+) => {
+  const { data } = await axios.get(`${BASE_URL}/api/products/${id}`);
+  
+  return {
+    props: { 
+      productDetails: data
+    },
+  };
+};
 
 export default Detail;

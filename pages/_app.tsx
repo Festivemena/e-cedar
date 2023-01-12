@@ -16,8 +16,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <GoogleOAuthProvider clientId={`993638040659-2m136lrh4cf02eh2770cd8nlvph4mg8u.apps.googleusercontent.com`}>
-      <Component {...pageProps} />
 
+            <Component {...pageProps} />
+      
     </GoogleOAuthProvider>
   );
 };

@@ -16,7 +16,7 @@ const Sidebar = () => {
   return (
     <div>
    <div
-        className='block xl:hidden m-2 ml-2 cursor-pointer mt-3 text-xl'
+        className='block xl:hidden m-2 cursor-pointer mt-3 text-xl'
         onClick={() => setShowSidebar(!showSidebar)}
       >
         {showSidebar ? <ImCancelCircle className='md:mt-2 md:h-8 w-8' /> : <AiOutlineMenu className='md:mt-2 md:h-8 w-8' />}
@@ -26,7 +26,7 @@ const Sidebar = () => {
           <div className='xl:border-b-2 border-gray-200 xl:pb-4'>
             <Link href='/'>
               <div className={pathname === '/' ? activeLink : normalLink}>
-                <p className='text-[16px]'>
+                <p className='text-[18px]'>
                   <AiFillHome />
                 </p>
                 <span className='capitalize text-xl hidden xl:block'>
@@ -39,7 +39,7 @@ const Sidebar = () => {
             <Link href='/user/mena'>
               <div className={pathname === '/' ? activeLink : normalLink}>
                 <p className='text-[18px]'>
-                  <BsPersonFill />
+                  <BsPersonFill /> 
                 </p>
                 <span className='capitalize text-xl hidden xl:block'>
                   My Profile
