@@ -46,7 +46,7 @@ const inter = Inter({
           <div className='h-[92vh] overflow-hidden xl:hover:overflow-auto'>
             <Sidebar />
           </div>
-          <div className='mt-4 flex flex-col gap-0 overflow-hidden hover:overflow-auto h-[88vh] videos flex-1'>
+          <div className='mt-4 flex flex-col gap-0 overflow-auto h-[88vh] videos flex-1'>
       <main className={styles.main}>
         <div className={inter.variable}>
         <div className='grid grid-cols-2 md:grid-cols-3 w-full gap-3 lg:gap-1 videos h-full'>
