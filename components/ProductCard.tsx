@@ -11,7 +11,7 @@ interface IProps {
 const ProductCard: NextPage<IProps> = ({ list }) => {
   return (
     <div className='flex flex-col border-2 py-1 rounded-xl shadow-xl border-gray-200'>
-      <div className='lg:ml-2 flex gap-2 relative'>
+      <div className='lg:mx-1 flex gap-2 relative'>
         <div
           // onMouseEnter={() => setIsHover(true)}
           // onMouseLeave={() => setIsHover(false)}

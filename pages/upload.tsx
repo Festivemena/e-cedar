@@ -65,7 +65,7 @@ const Upload = () => {
             category,
           };
     
-          await axios.post(`${BASE_URL}/api/products`, doc);
+          await axios.post(`${BASE_URL}/api/upload`, doc);
             
           router.push('/');
         }
@@ -165,7 +165,7 @@ const Upload = () => {
               <option
                 key={item.name}
                 className=' outline-none capitalize bg-white text-gray-700 text-md p-2 hover:bg-slate-300'
-                value={item.name}
+                value={item.name} 
               >
                 {item.name}
               </option>
@@ -183,7 +183,7 @@ const Upload = () => {
               disabled={productImageAsset?.url ? false : true}
               onClick={handlePost}
               type='button'
-              className='bg-[#F51997] text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none'
+              className='bg-[#F51997] text-white cursor-pointer text-md font-medium p-2 rounded w-28 lg:w-44 outline-none'
             >
               {savingProduct ? 'Posting...' : 'Post'}
             </button>

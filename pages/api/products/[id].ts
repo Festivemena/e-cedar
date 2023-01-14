@@ -5,6 +5,7 @@ import { client } from '../../../utils/sanity';
 import { uuid } from 'uuidv4';
 
 export default async function handler( req: NextApiRequest, res: NextApiResponse) {
+  
   if (req.method === 'GET') {
     const { id }:any = req.query;
     const query = productDetailQuery(id);

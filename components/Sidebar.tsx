@@ -5,10 +5,9 @@ import { AiFillHome, AiOutlineMenu } from 'react-icons/ai';
 import { ImCancelCircle } from 'react-icons/im';
 import Discover from './Discover';
 import { BsPersonFill } from 'react-icons/bs';
-// import Footer from './Footer';
 
 const Sidebar = () => {
-    const [showSidebar, setShowSidebar] = useState(false)
+    const [showSidebar, setShowSidebar] = useState(true)
     const { pathname } = useRouter();
     const activeLink = 'flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#F51997] rounded';
 
@@ -26,7 +25,7 @@ const Sidebar = () => {
           <div className='xl:border-b-2 border-gray-200 xl:pb-4'>
             <Link href='/'>
               <div className={pathname === '/' ? activeLink : normalLink}>
-                <p className='text-[18px]'>
+                <p className='text-[18px] lg:text-2xl'>
                   <AiFillHome />
                 </p>
                 <span className='capitalize text-xl hidden xl:block'>
@@ -48,7 +47,6 @@ const Sidebar = () => {
             </Link>
           </div>
           <Discover />
-          {/* <Footer /> */}
             </div>
         )}
     </div>

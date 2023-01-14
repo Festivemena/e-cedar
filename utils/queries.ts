@@ -16,21 +16,20 @@ export const allProductsQuery = () => {
   return query;
 };
 
-export const productDetailQuery = (PostId: string | string[]) => {
-  const query = `*[_type == "product" && _id == '${PostId}']{
+export const productDetailQuery = (id :string | string[]) => {
+  const query = `*[_type == "product" && _id == '${id}'] {
     _id,
-     productDetails,
-     productName,
-     productImage{
-      asset->{
-        _id,
-        url
-      }
-    },
       category,
-      price,
-    }
-  }`;
+   price,
+   productName,
+   productDetails,
+        productImage{
+         asset->{
+           _id,
+           url
+         }
+       },
+ }`;
   return query;
 };
 
@@ -128,7 +127,7 @@ export const allUsersQuery = () => {
 //   return query;
 // };
 
-export const topicPostsQuery = (category: string | string[]) => {
+export const categoryPostsQuery = (category: string | string[]) => {
   const query = `*[_type == "product" && category match '${category}*'] {
     _id,
     productDetails,
