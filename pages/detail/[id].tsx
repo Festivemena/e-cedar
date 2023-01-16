@@ -12,7 +12,6 @@ import { BsFillPlayFill } from 'react-icons/bs';
 import { HiVolumeUp, HiVolumeOff } from 'react-icons/hi';
 import { BASE_URL } from '../../utils'
 import NoResults from '../../components/NoResults';
-import DetailCard from '../../components/DetailCard'
 
 interface Details {
   category: string;
