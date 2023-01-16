@@ -64,13 +64,13 @@ const DetailCard: NextPage<IProps> = ({ lists }) => {
             <div className='lg:mt-20 mt-10'>
               <Link href={`/profile}`}>
                 <div className='flex gap-4 mb-4 bg-white w-full pl-10 cursor-pointer'>
-                  {/* <Image
+                  <Image
                     width={60}
                     height={60}
                     alt='user-profile'
                     className='rounded-full'
                     src={sds}
-                  /> */}
+                  />
                   <div>
                     <div className='text-xl font-bold lowercase tracking-wider flex gap-2 items-center justify-center'>
                       {/* {post.postedBy.userName.replace(/\s+/g, '')}{' '} */}

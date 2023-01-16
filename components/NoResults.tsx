@@ -11,7 +11,7 @@ const NoResults = ({ text }: IProps) => {
       <p className='text-8xl'>
         <BsCartXFill />
       </p>
-      <p className='text-2xl text-center'>{text}</p>
+      <p className='text-2xl md:text-xl text-center'>{text}</p>
     </div>
   );
 };
