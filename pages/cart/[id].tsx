@@ -27,25 +27,11 @@ const Cart = () => {
 
   const config = {
     reference: (new Date()).getTime().toString(),
-    email: "user@example.com",
-    amount: 20000,
+    email: "festusmena9@gmail.com",
+    amount: 200000,
     publicKey: 'pk_test_7a57f933c0b9aa7bb35273b1acdbf8562c330755',
     firstname: 'cool',
     lastname: 'story',
-    split: { //if you want to use transaction split
-        "type": "percentage",
-        "bearer_type": "all",
-        "subaccounts": [
-            {
-                "subaccount": "ACCT_mtl3xzwjfhcldkw",
-                "share": 30
-            },
-            {
-                "subaccount": "ACCT_y19ht107y44o294",
-                "share": 20
-            }
-        ]
-    }
 };
 
 const onSuccess = (reference: void) => {
@@ -96,9 +82,13 @@ const componentProps = {
       }
       </div>
       <div onClick={() => clearCart()}>Clear</div>
-      <p className='bottom-0'>Total: NGN {amount / 100}</p>
+      <p className='bottom-0'>Total: NGN {total}</p>
 
-<PaystackButton className="paystack-button" {...componentProps} />
+      <PaystackHookExample />
+        <PaystackButton {...componentProps} />
+        <PaystackConsumer {...componentProps} >
+            {({initializePayment}) => <button onClick={() => initializePayment()}>Paystack Consumer Implementation</button>}
+        </PaystackConsumer>
     </div>
   )
 }
