@@ -11,6 +11,7 @@ import { MdOutlineCancel } from 'react-icons/md';
 import { BsFillPlayFill } from 'react-icons/bs';
 import { HiVolumeUp, HiVolumeOff } from 'react-icons/hi';
 import { BASE_URL } from '../../utils'
+import useCartStore from '../../store/cartStore';
 import NoResults from '../../components/NoResults';
 
 interface Details {
@@ -24,7 +25,7 @@ interface Details {
   _id: string;
   productName: string;
   productDetails: string;
-  price: string;
+  price: number;
 }
 
 interface IProps {
@@ -39,8 +40,7 @@ const Detail: NextPage<IProps> = ({ details }) => {
 
   console.log(details)
   const router = useRouter();
-
-
+  const { addItem} = useCartStore();
 
   return (
     <>
@@ -66,42 +66,17 @@ const Detail: NextPage<IProps> = ({ details }) => {
           </div>
           <div className='relative w-[1000px] md:w-[900px] lg:w-[700px]'>
             <div className='lg:mt-20 mt-10'>
-              <Link href={`/profile}`}>
-                <div className='flex gap-4 mb-4 bg-white w-full pl-10 cursor-pointer'>
-                  <Image
-                    width={60}
-                    height={60}
-                    alt='user-profile'
-                    className='rounded-full'
-                    src={sds}
-                  />
-                  <div>
                     <div className='text-xl font-bold lowercase tracking-wider flex gap-2 items-center justify-center'>
-                      {/* {post.postedBy.userName.replace(/\s+/g, '')}{' '} */}
-                     
-                      {/* <GoVerified className='text-blue-400 text-xl' /> */}
                     </div>
                     <p className='text-md'>{details.productName}</p>
-                    <p>{details.price}</p>
+                    <p>N {details.price}</p>
                   </div>
                 </div>
-              </Link>
               <div className='px-10'>
                 <p className=' text-md text-gray-600'>{details.productDetails}</p>
               </div>
-              <div className='bg-green-700 w-36 text-white px-3 text-right rounded-md'>Add to Cart</div>
+              <div onClick={() =>addItem(details)} className='bg-green-700 w-36 cursor-pointer text-white px-3 text-right rounded-md'>Add to Cart</div>
             </div>
-          </div>
-        </div>
-        {/* {details.length ? (
-          details.map((detail: Details) => (
-            // <DetailCard lists={detail} key={detail._id} />
-            <div></div>
-          ))
-        ) : (
-          <NoResults text={'No New Products... Check Back Later'} />
-        )
-        } */}
     </>
   );
 };

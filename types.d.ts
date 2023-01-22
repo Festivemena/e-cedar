@@ -9,7 +9,7 @@ export interface Product {
   _id: string;
   productName: string;
   productDetails: string;
-  price: string;
+  price: number;
 }
 
 export interface IUser {

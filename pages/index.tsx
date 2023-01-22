@@ -14,13 +14,13 @@ interface Product {
   productImage: {
     asset: {
       _id: string;
-      url: string;
+      url: string; 
     };
   };
   _id: string;
   productName: string;
   productDetails: string;
-  price: string;
+  price: number ;
 }
 
 interface IProps {
@@ -55,7 +55,7 @@ const inter = Inter({
             <ProductCard list={product} key={product._id} />
           ))
         ) : (
-          <NoResults text={'NO New Products... Check Back Later'} />
+          <NoResults text={'No New Products... Check Back Later'} />
         )
         }
       </div>
@@ -71,8 +71,6 @@ const inter = Inter({
 
 export const getServerSideProps = async () => {
   const { data } = await axios.get(`${BASE_URL}/api/products`);
-
-  
 
   return {
     props: {

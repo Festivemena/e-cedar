@@ -1,6 +1,7 @@
 import React from 'react'
 import { Product } from './../types';
 import Link from 'next/link';
+import useCartStore from '../store/cartStore';
 import { NextPage } from 'next';
 import { BsDot } from 'react-icons/bs';
 
@@ -9,10 +10,11 @@ interface IProps {
 }
 
 const ProductCard: NextPage<IProps> = ({ list }) => {
+  const {items, addItem, total, removeItem} = useCartStore();
   return (
     <div className='flex flex-col border-2 py-1 rounded-xl shadow-xl border-gray-200'>
       <div className='lg:mx-1 flex gap-2 relative'>
-        <div
+        <div 
           // onMouseEnter={() => setIsHover(true)}
           // onMouseLeave={() => setIsHover(false)}
           className='rounded-3xl'
@@ -27,9 +29,11 @@ const ProductCard: NextPage<IProps> = ({ list }) => {
           <Link href={`/detail/${list._id}`}>
               <p className='mt-[2px] pl-1 w-full flex text-left font-semibold text-[16px] '>{list.productName}</p>
             </Link>
-            <p className='-mt-[2px] pr-1 w-full text-right  font-thin text-[12px]'>{list.price}</p>
+            <p className='-mt-[2px] pr-1 w-full text-right font-thin text-[12px]'>NGN {list.price}</p>
             </div>
-        </div>
+            <div onClick={() =>addItem(list)}
+             className='text-[10px] font-light cursor-pointer w-24 rounded-xl'>Add to Cart</div>
+      </div>
       </div>
     </div>
   )
