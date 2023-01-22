@@ -27,11 +27,12 @@ const Cart = () => {
 
   const config = {
     reference: (new Date()).getTime().toString(),
-    email: "festusmena9@gmail.com",
-    amount: 200000,
+    phonenumber: '08155784038',
+    email: "obotorf25@gmail.com",
+    amount: 2000000,
     publicKey: 'pk_test_7a57f933c0b9aa7bb35273b1acdbf8562c330755',
-    firstname: 'cool',
-    lastname: 'story',
+    firstname: 'Festus',
+    lastname: 'Mena',
 };
 
 const onSuccess = (reference: void) => {
@@ -50,7 +51,7 @@ const PaystackHookExample = () => {
         <div>
             <button onClick={() => {
                 initializePayment(onSuccess, onClose)
-            }}>Paystack Hooks Implementation</button>
+            }}>Pay Now</button>
         </div>
     );
 };
@@ -85,10 +86,10 @@ const componentProps = {
       <p className='bottom-0'>Total: NGN {total}</p>
 
       <PaystackHookExample />
-        <PaystackButton {...componentProps} />
+        {/* <PaystackButton {...componentProps} />
         <PaystackConsumer {...componentProps} >
             {({initializePayment}) => <button onClick={() => initializePayment()}>Paystack Consumer Implementation</button>}
-        </PaystackConsumer>
+        </PaystackConsumer> */}
     </div>
   )
 }
