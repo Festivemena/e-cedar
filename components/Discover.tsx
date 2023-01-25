@@ -19,7 +19,7 @@ const Discover = () => {
         {category?.map((item) => (
           <Link href={`/?category=${item.name}`} key={item.name}>
             <div className={Categories === item.name ? activeCategoryStyle : categoryStyle}>
-              <span className='font-bold text-[18px] xl:text-md '>
+              <span className='font-bold text-[18px] lg:text-2xl xl:text-md '>
                 {item.icon}
               </span>
               <span className={`font-medium text-[16px] hidden xl:block capitalize`}>
