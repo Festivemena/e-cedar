@@ -18,7 +18,7 @@ const roboto = Chakra_Petch({
 })
 
 const ProductCard: NextPage<IProps> = ({ list }) => {
-  const {items, addItem, total, removeItem} = useCartStore();
+  const { addItem } = useCartStore();
   return (
     <div className={roboto.className}>
     <div className='flex flex-col border-2 py-1 rounded-xl shadow-xl border-gray-200'>

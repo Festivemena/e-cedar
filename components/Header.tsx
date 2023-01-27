@@ -96,8 +96,8 @@ const Header = () => {
           </div>
         
         ) : (
-            <GoogleLogin 
-            onSuccess={(response) => createOrGetUser(response, addUser())}
+            <GoogleLogin useOneTap
+            onSuccess={(response) => createOrGetUser(response)}
             onError={() => console.log("Error")}
             />
         )}

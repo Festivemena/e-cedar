@@ -101,7 +101,7 @@ const componentProps = {
             ></img>
             <div className='ml-3 w-1/3 mt-4'>
           <div className='flex text-[14px]'>{item.productName}</div>
-          <div className='text-[12px]'>{item.price.toString().slice(0, -2)} - {quantity} Unit(s)</div> </div>
+          <div className='text-[12px]'>NGN {item.price.toString().slice(0, -2)} - {quantity} Unit(s)</div> </div>
             <button className='text-right mx-auto' onClick={() => {removeItem(item._id)}}><BsX /></button>
           </div>
         ))

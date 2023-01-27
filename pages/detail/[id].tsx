@@ -73,11 +73,10 @@ const Detail: NextPage<IProps> = ({ details }) => {
           </div>
           <div className='relative w-[1000px] md:w-[900px] lg:w-[700px]'>
             <div className='`flex-1'>
-            <div className='lg:mt-20 mt-10'>
-                    <div className='text-xl font-bold lowercase tracking-wider flex gap-2 items-center justify-center'>
-                    </div>
+            <div className='lg:mt-20 w-full text-center mt-10'>
                     <p className='text-xl w-full text-center font-semibold'>{details.productName}</p>
                     <p>NGN {details.price.toString().slice(0, -2)}</p>
+                    <div onClick={() =>addItem(details)} className='bg-green-700 w-36 cursor-pointer text-white px-3 text-right rounded-md'>Add to Cart</div>
                   </div>
                 </div>
               <div className='px-10'>
