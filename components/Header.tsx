@@ -37,7 +37,6 @@ const Header = () => {
           />
         </div>
       </Link>
-
       <div className='relative hidden md:block'>
         <form
           className='absolute md:static rounded-full top-10 -left-20 bg-primary'
@@ -82,7 +81,7 @@ const Header = () => {
              
               <Link href='/cart/mena'>
               <div className='border-2 px-2 py-2 rounded-full cursor-pointer outline-none shadow-md'>
-                 <BsCartDashFill className='w-[18px] h-[18px]' /> 
+                 <BsCartDashFill className='w-[14px] h-[14px]' /> 
              </div>
               </Link>
               <button
@@ -92,10 +91,10 @@ const Header = () => {
                   googleLogout();
                 }}
               >
-                <AiOutlineLogout color='red' fontSize={18} />
+                <AiOutlineLogout color='red' fontSize={14} />
               </button>
           </div>
-          
+        
         ) : (
             <GoogleLogin 
             onSuccess={(response) => createOrGetUser(response, addUser())}

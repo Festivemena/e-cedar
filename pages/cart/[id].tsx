@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Logo from '../../assets/cedar-trans.png';
 import { usePaystackPayment, PaystackButton, PaystackConsumer } from 'react-paystack';
 import useCartStore from '../../store/cartStore';
-import { BsX } from 'react-icons/bs';
+import { BsTrashFill, BsX } from 'react-icons/bs';
 
 interface cartItem {
   category: string;
@@ -31,7 +31,7 @@ const Cart = () => {
     reference: (new Date()).getTime().toString(),
     phone: '08155784038',
     email: "obotorf25@gmail.com",
-    amount: 2000000,
+    amount: total,
     publicKey: 'pk_test_7a57f933c0b9aa7bb35273b1acdbf8562c330755',
     firstname: 'Festus',
     lastname: 'Mena',
@@ -92,14 +92,14 @@ const componentProps = {
             ></img>
             <div className='ml-3 w-1/3 mt-4'>
           <div className='flex text-[14px]'>{item.productName}</div>
-          <div className='text-[12px]'>{item.price} - {quantity} Unit(s)</div> </div>
+          <div className='text-[12px]'>{item.price.toString().slice(0, -2)} - {quantity} Unit(s)</div> </div>
             <button className='text-right mx-auto' onClick={() => {removeItem(item._id)}}><BsX /></button>
           </div>
         ))
       }
       </div>
-      <div className='text-[12x] text-red-600' onClick={() => clearCart()}>Clear</div>
-      <p className='bottom-0 text-[16px]'>Total: NGN {total}</p>
+      <div className='text-[12x] w-full text-center cursor-pointer text-red-600' onClick={() => clearCart()}>Clear Cart</div>
+      <p className='bottom-0 text-[16px]'>Total: NGN {total.toString().slice(0, -2)}</p>
 
       <PaystackHookExample />
         {/* <PaystackButton {...componentProps} />

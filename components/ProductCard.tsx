@@ -29,7 +29,7 @@ const ProductCard: NextPage<IProps> = ({ list }) => {
           <Link href={`/detail/${list._id}`}>
               <p className='mt-[2px] pl-1 w-full flex text-left font-semibold text-[16px] '>{list.productName}</p>
             </Link>
-            <p className='-mt-[2px] pr-1 w-full text-right font-thin text-[12px]'>NGN {list.price}</p>
+            <p className='-mt-[2px] pr-1 w-full text-right font-thin text-[12px]'>NGN {list.price.toString().slice(0, -2)}</p>
             </div>
             <div onClick={() =>addItem(list)}
              className='text-[10px] font-light cursor-pointer w-24 rounded-xl'>Add to Cart</div>
