@@ -4,14 +4,23 @@ import Link from 'next/link';
 import useCartStore from '../store/cartStore';
 import { NextPage } from 'next';
 import { BsDot } from 'react-icons/bs';
+import { Bungee, Noto_Sans, Chakra_Petch } from '@next/font/google';
 
 interface IProps {
   list: Product;
 }
 
+const roboto = Chakra_Petch({
+  weight: '400',
+  style: ['normal'],
+  subsets: ['latin'],
+  display: 'optional'
+})
+
 const ProductCard: NextPage<IProps> = ({ list }) => {
   const {items, addItem, total, removeItem} = useCartStore();
   return (
+    <div className={roboto.className}>
     <div className='flex flex-col border-2 py-1 rounded-xl shadow-xl border-gray-200'>
       <div className='lg:mx-1 flex gap-2 relative'>
         <div 
@@ -35,6 +44,7 @@ const ProductCard: NextPage<IProps> = ({ list }) => {
              className='text-[10px] font-light cursor-pointer w-24 rounded-xl'>Add to Cart</div>
       </div>
       </div>
+    </div>
     </div>
   )
 }

@@ -6,6 +6,7 @@ import Logo from '../../assets/cedar-trans.png';
 import { usePaystackPayment, PaystackButton, PaystackConsumer } from 'react-paystack';
 import useCartStore from '../../store/cartStore';
 import { BsTrashFill, BsX } from 'react-icons/bs';
+import { Bungee, Noto_Sans, Chakra_Petch } from '@next/font/google';
 
 interface cartItem {
   category: string;
@@ -21,6 +22,13 @@ interface cartItem {
   price: number;
 
 }
+
+const roboto = Chakra_Petch({
+  weight: '400',
+  style: ['normal'],
+  subsets: ['latin'],
+  display: 'optional'
+})
 
 const Cart = () => {
   const {items, total, clearCart, removeItem} = useCartStore();
@@ -69,6 +77,7 @@ const componentProps = {
 };
 
   return (
+    <div className={roboto.className}>
     <div className='h-[100vh] w-full'>
       <div className='w-full flex'>
       <MdOutlineCancel fontSize={18} className='text-[35px] text-black' onClick={() => router.back()} />
@@ -106,7 +115,7 @@ const componentProps = {
         <PaystackConsumer {...componentProps} >
             {({initializePayment}) => <button onClick={() => initializePayment()}>Paystack Consumer Implementation</button>}
         </PaystackConsumer> */}
-    </div>
+    </div></div>
   )
 }
 
