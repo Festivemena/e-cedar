@@ -16,13 +16,21 @@ import useAuthStore from '../store/authStore';
 const Header = () => {
   const { addUser, userProfile}: any = useAuthStore;
   const user = 'Efemena'
-  // const [user, setUser] = useState<IUser | null>();
   const [searchValue, setSearchValue] = useState('');
+  // const [user, setUser] = useState<IUser | null>();
   const router = useRouter();  
  
   // useEffect(() => {
   //   setUser(userProfile);
-  // }, [userProfile]);  
+  // }, [userProfile]); 
+  
+  const handleSearch = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    
+    if(searchValue) {
+      router.push(`/search/${searchValue}`);
+    }
+  };
 
   return (
     <div className='w-full flex justify-between items-center border-b-2 border-gray-200 py-2 px-2'>
@@ -39,6 +47,7 @@ const Header = () => {
       </Link>
       <div className='relative hidden md:block'>
         <form
+          onSubmit={handleSearch}
           className='absolute md:static rounded-full top-10 -left-20 bg-primary'
         >
           <input
