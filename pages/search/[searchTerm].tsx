@@ -11,7 +11,9 @@ import useAuthStore from '../../store/authStore';
 import { BASE_URL } from '../../utils';
 import { IUser, Product } from '../../types';
 
+
 const Search = ({ products }: { products: Product[] }) => {
+  console.log(products)
   const [isAccounts, setIsAccounts] = useState(false);
 
   const router = useRouter();

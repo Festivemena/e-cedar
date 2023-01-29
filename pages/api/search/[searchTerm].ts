@@ -7,9 +7,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === 'GET') {
     const { searchTerm }: any = req.query;
 
-    const searchQuery = searchPostsQuery(searchTerm);
+    const query = searchPostsQuery(searchTerm);
 
-    const search = await client.fetch(searchQuery);
+    const search = await client.fetch(query);
 
     res.status(200).json(search);
   }
