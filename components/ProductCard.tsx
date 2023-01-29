@@ -41,7 +41,7 @@ const ProductCard: NextPage<IProps> = ({ list }) => {
             <p className='-mt-[2px] pr-1 w-full text-right font-thin text-[10px] md:text-[12px]'>NGN {list.price.toString().slice(0, -2)}</p>
             </div>
             <div onClick={() =>addItem(list)}
-             className='text-[10px] font-light bg-[#F51997] h-6 py-1 cursor-pointer w-full text-white text-center rounded-md'>Add to Cart</div>
+             className='text-[10px] font-light bg-[#F51997] h-6 py-1 px-2 cursor-pointer w-full text-white text-center rounded-md'>Add to Cart</div>
       </div>
       </div>
     </div>
