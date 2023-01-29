@@ -82,7 +82,6 @@ const Detail: NextPage<IProps> = ({ details }) => {
               <div className='px-10'>
                 <p className=' text-md text-gray-600'>{details.productDetails}</p>
               </div>
-              <div onClick={() =>addItem(details)} className='bg-green-700 w-36 cursor-pointer text-white px-3 text-right rounded-md'>Add to Cart</div>
             </div>
             </div>
             </div>

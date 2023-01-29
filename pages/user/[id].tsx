@@ -63,17 +63,17 @@ console.log(productDetails);
                   <div>
                     <div className='text-xl font-bold lowercase tracking-wider flex gap-2 items-center justify-center'>
                       {/* {post.postedBy.userName.replace(/\s+/g, '')}{' '} */}
-                      Product Name
+                      User Name
                       {/* <GoVerified className='text-blue-400 text-xl' /> */}
                     </div>
-                    <p className='text-md'>Product Price</p>
+                    <p className='text-md'>Email</p>
                   </div>
                 </div>
               </Link>
               <div className='px-10'>
-                <p className=' text-md text-gray-600'>Product Details to go here</p>
+                <p className=' text-md text-gray-600'>Details about Shipping Location</p>
               </div>
-              <div className='bg-green-700 w-36 text-white px-3 text-right rounded-md'>Add to Cart</div>
+              <div className='bg-green-700 w-36 text-white px-3 text-right rounded-md'>List of Recent orders</div>
             </div>
           </div>
         </div>
