@@ -7,6 +7,8 @@ import { usePaystackPayment, PaystackButton, PaystackConsumer } from 'react-pays
 import useCartStore from '../../store/cartStore';
 import { BsTrashFill, BsX } from 'react-icons/bs';
 import { Bungee, Noto_Sans, Chakra_Petch } from '@next/font/google';
+import axios from 'axios';
+import { BASE_URL } from '../../utils';
 
 interface cartItem {
   category: string;
@@ -118,5 +120,21 @@ const componentProps = {
     </div></div>
   )
 }
+
+export const getServerSideProps = async (
+  {
+  params: { id },
+}: {
+  params: { id: string };
+}
+) => {
+  const { data } = await axios.get(`${BASE_URL}/api/products/${id}`);
+  
+  return {
+    props: { 
+      details: data
+    },
+  };
+};
 
 export default Cart
