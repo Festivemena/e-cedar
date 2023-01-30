@@ -5,6 +5,7 @@ import useCartStore from '../store/cartStore';
 import { NextPage } from 'next';
 import { BsDot } from 'react-icons/bs';
 import { Bungee, Noto_Sans, Chakra_Petch } from '@next/font/google';
+import { client } from '../utils/sanity';
 
 interface IProps {
   list: Product;
