@@ -132,7 +132,7 @@ const Upload = () => {
                       src={productImageAsset?.url}
                     />
                     <div className=' flex justify-between gap-20'>
-                      <p className='text-lg'>{productImageAsset.originalFilename}</p>
+                      <p className='text-[14px]'>{productImageAsset.originalFilename}</p>
                       <button
                         type='button'
                         className=' rounded-full bg-gray-200 text-red-400 p-2 text-xl cursor-pointer outline-none hover:shadow-md transition-all duration-500 ease-in-out'
@@ -148,7 +148,7 @@ const Upload = () => {
           </div>
           
         </div>
-        <div className='flex flex-col gap-3 pb-10'>
+        <div className='flex flex-col mt-12 gap-3 pb-10'>
           <label className='text-md font-medium '>Product Name</label>
           <input
             type='text'
