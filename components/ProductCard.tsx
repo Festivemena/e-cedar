@@ -6,6 +6,7 @@ import { NextPage } from 'next';
 import { BsDot } from 'react-icons/bs';
 import { Bungee, Noto_Sans, Chakra_Petch } from '@next/font/google';
 import { client } from '../utils/sanity';
+import { v4 } from 'uuid';
 
 interface IProps {
   list: Product;
@@ -20,6 +21,21 @@ const roboto = Chakra_Petch({
 
 const ProductCard: NextPage<IProps> = ({ list }) => {
   const { addItem } = useCartStore();
+
+  function add(list: any) {
+    client
+    .patch(list._id)
+    // .setIfMissing({ orders: [] })
+    // .insert('after', 'orders[-1]', [
+    //   
+    //     _key: v4(),
+    //     _ref: list._id
+    .append('orders', [list])
+    .commit()
+    .then (() => {console.log('item added')})
+    .catch(error => {console.error('error adding', error)})
+  }
+
   return (
     <div className={roboto.className}>
     <div className='flex flex-col border-2 py-1 rounded-xl shadow-xl border-gray-200'>
@@ -41,7 +57,7 @@ const ProductCard: NextPage<IProps> = ({ list }) => {
             </Link>
             <p className='-mt-[2px] pr-1 w-full text-right font-thin text-[10px] md:text-[12px]'>NGN {list.price.toString().slice(0, -2)}</p>
             </div>
-            <div onClick={() =>addItem(list)}
+            <div onClick={() =>add(list)}
              className='text-[10px] font-light bg-[#F51997] h-6 py-1 px-2 cursor-pointer w-full text-white text-center rounded-md'>Add to Cart</div>
       </div>
       </div>

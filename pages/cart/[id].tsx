@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { MdOutlineCancel } from 'react-icons/md';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { NextPage } from 'next';
 import Logo from '../../assets/cedar-trans.png';
 import { usePaystackPayment, PaystackButton, PaystackConsumer } from 'react-paystack';
 import useCartStore from '../../store/cartStore';
@@ -9,6 +10,10 @@ import { BsTrashFill, BsX } from 'react-icons/bs';
 import { Bungee, Noto_Sans, Chakra_Petch } from '@next/font/google';
 import axios from 'axios';
 import { BASE_URL } from '../../utils';
+
+interface IProps {
+  details: cartItem
+}
 
 interface cartItem {
   category: string;
@@ -32,7 +37,7 @@ const roboto = Chakra_Petch({
   display: 'optional'
 })
 
-const Cart = () => {
+const Cart: NextPage<IProps> = () => {
   const {items, total, clearCart, removeItem} = useCartStore();
   const router = useRouter();
   const quantity = 1; 
@@ -120,21 +125,5 @@ const componentProps = {
     </div></div>
   )
 }
-
-export const getServerSideProps = async (
-  {
-  params: { id },
-}: {
-  params: { id: string };
-}
-) => {
-  const { data } = await axios.get(`${BASE_URL}/api/products/${id}`);
-  
-  return {
-    props: { 
-      details: data
-    },
-  };
-};
 
 export default Cart
