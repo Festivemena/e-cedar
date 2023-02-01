@@ -61,7 +61,7 @@ const ProductCard: NextPage<IProps> = ({ list }) => {
              className='text-[10px] font-light bg-[#F51997] h-6 py-1 px-2 cursor-pointer w-full text-white text-center rounded-md'>Add to Cart</div>
       </div>
       </div>
-    </div>
+    </div>\\
     </div>
   )
 }

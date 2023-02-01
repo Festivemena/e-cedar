@@ -12,7 +12,8 @@ import { category } from '../utils/constants';
 
 const Upload = () => {
     const [productName, setProductName] = useState('');
-    const [topic, setTopic] = useState<String>(category[0].name);
+    const [price, setPrice] = useState('');
+    const [topic, setTopic] = useState('');
     const [loading, setLoading] = useState<Boolean>(false);
     const [savingProduct, setSavingProduct] = useState<Boolean>(false);
     const [productImageAsset, setProductImageAsset] = useState<SanityAssetDocument | undefined>();
@@ -49,7 +50,7 @@ const Upload = () => {
       };
     
       const handlePost = async () => {
-        if (productName && productImageAsset?._id && category) {
+        if (productName && productImageAsset?._id && price && category) {
           setSavingProduct(true);
     
           const doc = {
@@ -62,6 +63,7 @@ const Upload = () => {
                 _ref: productImageAsset?._id,
               },
             },
+            price,
             category,
           };
     
@@ -75,6 +77,7 @@ const Upload = () => {
         setSavingProduct(false);
         setProductImageAsset(undefined);
         setProductName('');
+        setPrice('');
         setTopic('');
       };
     
@@ -153,9 +156,21 @@ const Upload = () => {
             onChange={(e) => setProductName(e.target.value)}
             className='rounded lg:after:w-650 outline-none text-md border-2 border-gray-200 p-2'
           />
+           <label className='text-md font-medium '>Price</label>
+          <input
+            type='text'
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            className='rounded lg:after:w-650 outline-none text-md border-2 border-gray-200 p-2'
+          />
           <label className='text-md font-medium '>Choose a category</label>
-
-          <select
+          <input
+            type='text'
+            value={topic}
+            onChange={(e) => setTopic(e.target.value)}
+            className='rounded lg:after:w-650 outline-none text-md border-2 border-gray-200 p-2'
+          />
+          {/* <select
             onChange={(e) => {
               setTopic(e.target.value);
             }}
@@ -170,7 +185,7 @@ const Upload = () => {
                 {item.name}
               </option>
             ))}
-          </select>
+          </select> */}
           <div className='flex gap-6 mt-10'>
             <button
               onClick={handleDiscard}
