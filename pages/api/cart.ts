@@ -7,14 +7,14 @@ export default async function handler(
     res: NextApiResponse
 ) {
     if (req.method === 'PUT') {
-        const { comment, userId } = req.body;
+        const { comment , userId } = req.body;
     
         const { id }: any = req.query;
     
         const data = await client
           .patch(id)
-          .setIfMissing({ comments: [] })
-          .insert('after', 'comments[-1]', [
+          .setIfMissing({ cart: [] })
+          .insert('after', 'cart[-1]', [
             {
               comment,
               _key: uuid(),
