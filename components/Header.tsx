@@ -12,6 +12,7 @@ import { BsCartDashFill } from 'react-icons/bs';
 import { createOrGetUser } from '../utils';
 import { IUser } from '../types';
 import useAuthStore from '../store/authStore';
+import useCartStore from '../store/cartStore';
 
 const Header = () => {
   const { addUser, userProfile}: any = useAuthStore;
@@ -67,12 +68,12 @@ const Header = () => {
       <div>
         {user? (
           <div className='flex gap-5 md:gap-10'>
-            {/* <Link href='/upload'>
+            <Link href='/upload'>
               <button className='border-2 p-2 rounded-full cursor-pointer outline-none shadow-md'>
                 <IoMdAdd fontSize={18} className='text-xl' />{' '}
                 <span className='hidden md:block'>Upload </span>
               </button>
-            </Link> */}
+            </Link>
             {/* {user.image && (
               <Link href={`/`}>
                 <div>
@@ -106,7 +107,7 @@ const Header = () => {
         
         ) : (
             <GoogleLogin useOneTap
-            onSuccess={(response) => createOrGetUser(response)}
+            onSuccess={(response) => createOrGetUser(response, addUser)}
             onError={() => console.log("Error")}
             />
         )}
