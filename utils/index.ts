@@ -3,6 +3,15 @@ import jwtDecode from 'jwt-decode';
 
 export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
+export const createOrGetCart = async () => {
+  const cart = {
+    _type: 'cart',
+    name: 'Efemena Festus',
+    orders: [],
+  };
+
+  await axios.put(`${BASE_URL}/api/cart`, cart);
+};
 
 export const createOrGetUser = async (response: any, addUser: any) => {
   const decoded: { name: string, sub: string, picture: string} = jwtDecode(response.credential);

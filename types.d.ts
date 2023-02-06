@@ -7,9 +7,19 @@ export interface Product {
     };
   };
   _id: string;
+  length?: number;
   productName: string;
   productDetails: string;
   price: number;
+}
+
+export interface OrderItem {
+  _id: string;
+  _type: string;
+  name: string;
+  _key: string;
+  _ref: string;
+  postedBy: string;
 }
 
 export interface IUser {

@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { MdOutlineCancel } from 'react-icons/md';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import Link from 'next/link';
 import { NextPage } from 'next';
 import Logo from '../../assets/cedar-trans.png';
 import { usePaystackPayment, PaystackButton, PaystackConsumer } from 'react-paystack';
@@ -109,15 +110,17 @@ const componentProps = {
             <div className='ml-3 w-1/3 mt-4'>
           <div className='flex text-[14px]'>{item.productName}</div>
           <div className='text-[12px]'>NGN {item.price.toString().slice(0, -2)} - {quantity} Unit(s)</div> </div>
-            <button className='text-right mx-auto' onClick={() => {removeItem(item._id)}}><BsX /></button>
+            <button className='text-right mx-auto text-red-600' onClick={() => {removeItem(item._id)}}><BsTrashFill /></button>
           </div>
         ))
       }
       </div>
       <div className='text-[12x] w-full text-center cursor-pointer text-red-600' onClick={() => clearCart()}>Clear Cart</div>
       <p className='bottom-0 text-[16px]'>Total: NGN {total.toString().slice(0, -2)}</p>
-
-      <PaystackHookExample />
+      <Link href={`/checkout`}>
+              <p className='mt-[2px] pl-1 w-full flex text-left font-semibold text-[12px] md:text-[14px]'>Checkout</p>
+            </Link>
+      {/* <PaystackHookExample /> */}
         {/* <PaystackButton {...componentProps} />
         <PaystackConsumer {...componentProps} >
             {({initializePayment}) => <button onClick={() => initializePayment()}>Paystack Consumer Implementation</button>}

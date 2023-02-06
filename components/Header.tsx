@@ -68,12 +68,12 @@ const Header = () => {
       <div>
         {user? (
           <div className='flex gap-5 md:gap-10'>
-            <Link href='/upload'>
+            {/* <Link href='/upload'>
               <button className='border-2 p-2 rounded-full cursor-pointer outline-none shadow-md'>
                 <IoMdAdd fontSize={18} className='text-xl' />{' '}
-                <span className='hidden md:block'>Upload </span>
+                <span className='hidden md:block'> </span>
               </button>
-            </Link>
+            </Link> */}
             {/* {user.image && (
               <Link href={`/`}>
                 <div>
@@ -83,7 +83,7 @@ const Header = () => {
                     alt='user'
                     width={40}
                     height={40}
-                  />
+                  />\
                 </div>
               </Link>
             )} */}
@@ -94,7 +94,7 @@ const Header = () => {
                  <BsCartDashFill className='w-[14px] h-[14px]' /> 
              </div>
               </Link>
-              <button
+              {/* <button
                 type='button'
                 className=' border-2 px-2 py-2 rounded-full cursor-pointer outline-none shadow-md'
                 onClick={() => {
@@ -102,7 +102,7 @@ const Header = () => {
                 }}
               >
                 <AiOutlineLogout color='red' fontSize={14} />
-              </button>
+              </button> */}
           </div>
         
         ) : (

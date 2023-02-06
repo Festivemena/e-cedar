@@ -34,18 +34,6 @@ const Sidebar = () => {
               </div>
             </Link>
           </div>
-          <div className='xl:border-b-2 border-gray-200 xl:pb-4'>
-            <Link href='/user/mena'>
-              <div className={pathname === '/' ? activeLink : normalLink}>
-                <p className='text-[18px]'>
-                  <BsPersonFill /> 
-                </p>
-                <span className='capitalize text-xl hidden xl:block'>
-                  My Profile
-                </span>
-              </div>
-            </Link>
-          </div>
           <Discover />
             </div>
         )}
