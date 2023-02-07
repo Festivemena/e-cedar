@@ -4,7 +4,9 @@ import { useRouter } from 'next/router';
 import { usePaystackPayment } from 'react-paystack';
 import { MdOutlineCancel } from 'react-icons/md';
 
-const {items, total, clearCart, removeItem} = useCartStore();
+
+const Checkout = () => {
+  const {total} = useCartStore();
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [address, setAddress] = useState('');
@@ -43,7 +45,6 @@ const PaystackHookExample = () => {
     );
 };
 
-const Checkout = () => {
   return (
     <div className='h-screen'>
         <div className='flex w-full text-center'>
