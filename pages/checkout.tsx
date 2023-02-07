@@ -43,7 +43,7 @@ const PaystackHookExample = () => {
     );
 };
 
-const checkout = () => {
+const Checkout = () => {
   return (
     <div className='h-screen'>
         <div className='flex w-full text-center'>
@@ -86,4 +86,4 @@ const checkout = () => {
   )
 }
 
-export default checkout
+export default Checkout
