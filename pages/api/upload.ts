@@ -10,7 +10,7 @@ export default async function handler(
         const doc = req.body;
    
         client.create(doc).then(() => {
-          res.status(200).json('Product Uploaded Successfully');
+          res.status(200).json('Orders Uploaded Successfully');
         });
       }
 }
